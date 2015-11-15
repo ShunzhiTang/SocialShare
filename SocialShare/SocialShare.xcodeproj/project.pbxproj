@@ -26,6 +26,7 @@
 		240C9EB81BF7F96E0033FE07 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240C9EAB1BF7F96E0033FE07 /* UMSShareListController.xib */; settings = {ASSET_TAGS = (); }; };
 		240C9EB91BF7F96E0033FE07 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 240C9EAC1BF7F96E0033FE07 /* UMSocialSDKResourcesNew.bundle */; settings = {ASSET_TAGS = (); }; };
 		240C9EBB1BF7F9960033FE07 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240C9EBA1BF7F9960033FE07 /* SystemConfiguration.framework */; };
+		240C9EBF1BF808E10033FE07 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 240C9EBD1BF808E10033FE07 /* libSocialSina.a */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		240C9EAC1BF7F96E0033FE07 /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
 		240C9EAD1BF7F96E0033FE07 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
 		240C9EBA1BF7F9960033FE07 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		240C9EBD1BF808E10033FE07 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
+		240C9EBE1BF808E10033FE07 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 				240C9EBB1BF7F9960033FE07 /* SystemConfiguration.framework in Frameworks */,
 				240C9EAF1BF7F96E0033FE07 /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
 				240C9EB01BF7F96E0033FE07 /* libUMSocial_Sdk_Comment_4.2.3.a in Frameworks */,
+				240C9EBF1BF808E10033FE07 /* libSocialSina.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +104,7 @@
 		240C9E7A1BF7DC5A0033FE07 /* SocialShare */ = {
 			isa = PBXGroup;
 			children = (
+				240C9EBC1BF808E10033FE07 /* Sina */,
 				240C9E921BF7F96E0033FE07 /* UMSocial_Sdk_4.2.3 */,
 				240C9E7E1BF7DC5A0033FE07 /* AppDelegate.h */,
 				240C9E7F1BF7DC5A0033FE07 /* AppDelegate.m */,
@@ -166,6 +171,15 @@
 				240C9EAB1BF7F96E0033FE07 /* UMSShareListController.xib */,
 			);
 			path = SocialSDKXib;
+			sourceTree = "<group>";
+		};
+		240C9EBC1BF808E10033FE07 /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				240C9EBD1BF808E10033FE07 /* libSocialSina.a */,
+				240C9EBE1BF808E10033FE07 /* UMSocialSinaHandler.h */,
+			);
+			path = Sina;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +392,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SocialShare/UMSocial_Sdk_4.2.3",
+					"$(PROJECT_DIR)/SocialShare/Sina",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tsz.SocialShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -393,6 +408,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SocialShare/UMSocial_Sdk_4.2.3",
+					"$(PROJECT_DIR)/SocialShare/Sina",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tsz.SocialShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";

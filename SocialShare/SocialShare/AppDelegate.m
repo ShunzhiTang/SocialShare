@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UMSocial.h"
-
+#import  "UMSocialSinaHandler.h"
 
 @interface AppDelegate ()
 
@@ -16,12 +16,31 @@
 
 @implementation AppDelegate
 
+/**
+ 关于授权:
+ 如果要让分享内容的最下面, 显示是自己的App名称, 就必须注册各个开发者平台, 设置appkey等
+ 否则, 会一直显示是友盟分享的字样, 且点击链接时, 会跳转到友盟官网
+ */
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //添加APPKey
     [UMSocialData setAppKey:@"559bb90967e58e9f0a003d02"];
+    
+    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。若在新浪后台设置我们的回调地址，“http://sns.whalecloud.com/sina2/callback”，这里可以传nil
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     return YES;
+}
+
+#pragma mark: 添加回调方法
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    
+    return [UMSocialSnsService handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    
+    return [UMSocialSnsService handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

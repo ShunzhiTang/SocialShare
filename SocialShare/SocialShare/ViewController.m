@@ -86,6 +86,20 @@
 
 - (IBAction)weiboClick:(UIBarButtonItem *)sender {
     
+    UMSocialSnsPlatform *platform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+    
+    platform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+         //          获取微博用户名、uid、token等
+        
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            
+            //得到帐号
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
+            
+             NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+        }
+    });
+    
     
 }
 @end
